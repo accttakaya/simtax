@@ -1,0 +1,10 @@
+= link_to "top", root_path
+.wrapper
+  - if "#{@number}" == "1"
+    = render partial: 'info1'
+  - elsif "#{@number}" == "2"
+    = render partial: 'info2'
+  - elsif "#{@number}" == "3"
+    = render partial: 'info3'
+  - else 
+    = render partial: 'info4'

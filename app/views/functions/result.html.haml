@@ -1,0 +1,25 @@
+= link_to "top", root_path
+
+<br>シミュレーション結果は以下のとおりです。<br>
+- @debtSimulation.each_with_index do |result,i|
+  - if i == 0
+    = "【総括】"
+    %table
+      %tr
+        %td
+          = "月々の支払額：#{result[:monthlyRepayment].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円（毎月定額）"
+          = "年間の支払額：#{@debtSimulation[0][:annualRepayment].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円"
+          = "総支払額：#{@debtSimulation[0][:totalRepayment].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円"
+          = "総支払額に占める利息の割合：#{@debtSimulation[0][:totalInterst].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円"
+    <br>
+    = "【月々の情報は以下のとおりです。】"
+  - else
+    <br>
+    = "---------------------------------------------"
+    %table
+      %tr
+        %td
+          = "#{result[:howManyTimes]}回目の支払:#{result[:monthlyRepayment].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円（内利息：#{result[:interestOfThisMonth].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円、内元金返済：#{result[:principalOfThisMonth].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円）"
+      %tr
+        %td
+          = "支払後の借入金残高：#{result[:debtBalanceAtThisMonth].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円"
