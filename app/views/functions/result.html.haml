@@ -1,5 +1,29 @@
 = link_to "top", root_path
 
+- array1 = []
+- totalRepayment = @debtSimulation[0][:totalRepayment]
+- paymentRequired = totalRepayment
+- @debtSimulation.each_with_index do |result,i|
+  
+  - if i == 0
+    - array1 << totalRepayment
+  - elsif i == @debtSimulation.size - 1
+    - array1 << 0
+  - else 
+    - paymentRequired -= result[:monthlyRepayment]
+    - array1 << paymentRequired
+
+- array2 = []
+- @debtSimulation.each_with_index do |result,i|
+  - if i == 0
+    - array2 << result[:debtBalance] 
+  - else
+    - array2 << result[:debtBalanceAtThisMonth] 
+
+- labels = []
+- @debtSimulation.each_with_index do |result,i|
+  - labels << i
+
 <br>シミュレーション結果は以下のとおりです。<br>
 - @debtSimulation.each_with_index do |result,i|
   - if i == 0
@@ -23,3 +47,44 @@
       %tr
         %td
           = "支払後の借入金残高：#{result[:debtBalanceAtThisMonth].to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}円"
+
+%canvas#myChart{:height => "80", :width => "200"}
+:javascript
+  var array1 = #{array1}
+  var array2 = #{array2}
+  var labels = #{labels}
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: labels,
+          datasets: [{
+              label: '要支払額',
+              data: array1,
+              backgroundColor: [],
+              borderColor: [
+                  'rgba(75, 192, 192, 1)'
+              ],
+              borderWidth: 1
+          },{
+              label: '借入金元金',
+              data: array2,
+              backgroundColor: [
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });

@@ -33,7 +33,16 @@ class FunctionsController < ApplicationController
 
     howManyTimes             = 1
     debtBalanceAtThisMonth   = debtBalance
-    debtSimulationResults    = [monthlyRepayment:monthlyRepayment,annualRepayment:annualRepayment,totalRepayment:totalRepayment,totalInterst:totalInterst]
+    debtSimulationResults    = [
+      debtBalance:debtBalance,
+      annualInterestRate:annualInterestRate,
+      numberOfPayments:numberOfPayments,
+      monthlyInterestRate:monthlyInterestRate,
+      monthlyRepayment:monthlyRepayment,
+      annualRepayment:annualRepayment,
+      totalRepayment:totalRepayment,
+      totalInterst:totalInterst
+    ]
     while howManyTimes <= numberOfPayments do
     
       if howManyTimes == numberOfPayments
