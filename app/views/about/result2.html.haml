@@ -2,6 +2,12 @@
 .chart--header
   シミュレーション結果
 
+.chart--navbar
+  %ul.chart--navbar__results
+    %li.chart--navbar__results--result 総所得:#{@taxSimulation7[0]/1000}千円
+    %li.chart--navbar__results--result 納税額:#{@taxSimulation7[1]/1000}千円
+    %li.chart--navbar__results--result 総所得に占める所得税の割合:#{@taxSimulation7[2]}％
+
 
 -# for myChart1
 - incomeDeduction = 0
@@ -49,7 +55,7 @@
 
 .chart--contents--upper
   .chart--contents--upper__chart1
-    %canvas#myChart1{:height => "75", :width => "100"}
+    %canvas#myChart1{:height => "73", :width => "100"}
     :javascript
         var labelArray1_1 = #{labelArray1_1}
         var dataArray1_1 = #{dataArray1_1}
@@ -119,7 +125,7 @@
         });
 
   .chart--contents--upper__chart2
-    %canvas#myChart2{:height => "75", :width => "100"}
+    %canvas#myChart2{:height => "73", :width => "100"}
     :javascript           
         var dataArray2_1 = #{dataArray2_1}
         var dataArray2_2 = #{dataArray2_2}
@@ -236,7 +242,7 @@
         });
 
   .chart--contents--upper__chart3
-    %canvas#myChart3{:height => "75", :width => "100"}
+    %canvas#myChart3{:height => "73", :width => "100"}
     :javascript
         var labelArray3_1 = #{labelArray3_1}
         var dataArray3_1 = #{dataArray3_1}
@@ -308,7 +314,7 @@
 
 .chart--contents--bottom
   .chart--contents--bottom__chart4
-    %canvas#myChart4{:height => "75", :width => "100"}
+    %canvas#myChart4{:height => "73", :width => "100"}
     :javascript
         var labelArray4_1 = #{labelArray4_1}
         var dataArray4_1 = #{dataArray4_1}
@@ -362,7 +368,7 @@
         });
 
   .chart--contents--bottom__chart5
-    %canvas#myChart5{:height => "75", :width => "100"}
+    %canvas#myChart5{:height => "73", :width => "100"}
     :javascript
         var labelArray5_1 = #{labelArray5_1}
         var dataArray5_1 = #{dataArray5_1}
@@ -390,7 +396,7 @@
         });
     
   .chart--contents--bottom__chart6
-    %canvas#myChart6{:height => "75", :width => "100"}
+    %canvas#myChart6{:height => "73", :width => "100"}
     :javascript
         var labelArray6_1 = #{labelArray6_1}
         var dataArray6_1 = #{dataArray6_1}

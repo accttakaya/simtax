@@ -16,6 +16,7 @@ class AboutController < ApplicationController
     @taxSimulation4  = taxSimulation[3]
     @taxSimulation5  = taxSimulation[4]
     @taxSimulation6  = taxSimulation[5]
+    @taxSimulation7  = taxSimulation[6]
   end
 
 
@@ -298,7 +299,8 @@ class AboutController < ApplicationController
         [employmentIncome,businessIncome,realEstateIncome]
       ],
       incomeDeductionArray,
-      [taxCredit,withholdingTaxAmount,estimatedTaxPaymentAmount]
+      [taxCredit,withholdingTaxAmount,estimatedTaxPaymentAmount],
+      [taxStandard.to_i,(calculatedTaxAmount-taxCredit).to_i,((calculatedTaxAmount-taxCredit)*100/taxStandard).to_i]
     ]
     
   end

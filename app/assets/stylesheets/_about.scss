@@ -9,6 +9,19 @@
   font-family: monospace;
 }
 
+.chart--navbar {
+  .chart--navbar__results {
+    display: flex;
+    justify-content: space-between;
+    .chart--navbar__results--result {
+      background-color:pink;
+      width: calc(100%/3);
+      border: 2px solid salmon;
+      text-align: center;
+    }
+  }
+}
+
 .chart--contents--upper {
   width: 100%;
   display: flex;
