@@ -1,0 +1,40 @@
+// Place all the styles related to the about controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chart--header {
+  height: 20px;
+  background-color: skyblue;
+  color: blue;
+  font-family: monospace;
+}
+
+.chart--contents--upper {
+  width: 100%;
+  display: flex;
+  .chart--contents--upper__chart1 {
+    width: 33%;
+  }
+  .chart--contents--upper__chart2 {
+    width: 34%;
+  }
+  .chart--contents--upper__chart3 {
+    width: 33%;
+  }
+}
+
+.chart--contents--bottom {
+  width: 100%;
+  display: flex;
+  .chart--contents--bottom__chart4 {
+    width: 34%;
+  }
+  .chart--contents--bottom__chart5 {
+    width: 33%;
+    height: 100%;
+  }
+  .chart--contents--bottom__chart6 {
+    width: 33%;
+    height: 100%;
+  }
+}
