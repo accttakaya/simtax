@@ -1,14 +1,20 @@
-.header
-  .header-left
-    SimTax
-  .header-right
+%div.header
+  %div.header-left
+    SimTax 
+  %div.header-right
     = link_to "#", class: "header-right__buttons-signup" do
       SignUp
     = link_to "#", class: "header-right__buttons-login" do
       LogIn
-.top-image
-.contents
-  .contents-functions
+
+%div.top-image
+  %div.top-image__message
+    %h1.top-image__message--main Visualize your Tax
+    %p.top-image__message--sub SimTaxは、あたなの税金を視覚化します。
+
+
+%div.contents
+  %div.contents-functions
     = link_to function_path(1), class: "contents-functions__btn" do
       function1
     = link_to function_path(2), class: "contents-functions__btn" do
@@ -17,5 +23,24 @@
       function3
     = link_to function_path(4), class: "contents-functions__btn" do
       function4
+
+%div.contact-form
+  %h3.section-title お問い合わせ
+  %p メールアドレス（必須）
+  %input/
+  %p お問い合わせ内容（必須）
+  %textarea
+  %p ※必須項目は必ずご入力ください
+  %input.contact-submit{:type => "submit", :value => "送信"}/
+
+
+%div.footer
+  %div.footer-left
+    SimTax
+  %div.footer-right
+    %ul
+      %li 佐藤事務所概要
+      %li お問い合わせ
+
 
       

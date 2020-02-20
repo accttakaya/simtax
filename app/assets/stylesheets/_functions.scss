@@ -1,9 +1,10 @@
 * {
   box-sizing: border-box;
+  font-family: 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
 }
 
 .header {
-  height: 100px;
+  height: 80px;
   width: 100%;
   border-bottom:1px solid #0099ff;
   background-color: #0099ff80;
@@ -13,30 +14,31 @@
   .header-left {
     margin-left: 30px;
     text-align: center;
-    font-size: 50px;
-    line-height: 100px;
+    font-size: 30px;
+    line-height: 80px;
     font-weight: bold;
-    background-color: red;
+    border: 1px solid black;
   }
   .header-right {
-    font-size: 30px;
-    background-color: yellow;
+    font-size: 20px;
     margin: 20px 30px 20px 0;
     display: flex;
     justify-content: space-between;
     &__buttons-signup {
+      height: 40px;
       text-align: center;
       margin-right: 20px;
       border: solid 1px black;
-      line-height: 60px;
+      line-height: 40px;
       width: 140px;
       text-decoration: none;
       color: black;
     }
     &__buttons-login {
+      height: 40px;
       text-align: center;
       border: solid 1px black;
-      line-height: 60px;
+      line-height: 40px;
       width: 140px;
       text-decoration: none;
       color: black;
@@ -45,15 +47,30 @@
 }
 
 .top-image {
-  height: calc(100vh - 250px);
-}
+  height: calc(100vh - 200px);
+  background-image: image-url('top-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  &__message{
+    padding-top: 100px;
+    padding-left: 30px;
+    }
+  &__message--main{
+    font-size: 55px;
+    letter-spacing: 3px;
+      }
+  &__message--sub{
+    font-size: 20px;
+      }
+  }
 
 .contents {
   height: 150px;
   width:100%;
-  background-color: #fffacd;
+  // background-color: #fffacd;
   .contents-functions{
-    background-color: skyblue;
+    // background-color: skyblue;
     width: 100%;
     height: 100%;
     display: flex;
@@ -65,5 +82,46 @@
       line-height: 70px;
     }
   }
-  
+}
+
+.contact-form{
+  padding-left: 40px;
+  padding-right: 40px;
+  .section-title{
+    border-bottom: 2px solid #dee7ec;
+    font-size: 25px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  input, textarea {
+    width: 400px;
+    margin-top:10px;
+    margin-bottom:30px;
+    padding:20px;
+    border: 1px solid #dee7ec;
+  }
+  .contact-submit {
+    background-color :#dee7ec;
+    color:#889eab;
+  }
+}
+
+
+
+.footer {
+  background-color: #2f5167;
+  color: #fff;
+  height: 140px;
+  padding: 40px;
+  .footer-left{
+    float: left;
+    font-size: 30px;
+    border: 1px solid black;
+  }
+  .footer-right {
+    float: right;
+    li {
+      padding-bottom: 20px;
+    }
+  }
 }
