@@ -1,0 +1,6 @@
+= link_to "top", root_path
+.wrapper
+  - if "#{@number}" == "1"
+    = render partial: 'simulation1'
+  - else "#{@number}" == "2"
+    = render partial: 'simulation2'

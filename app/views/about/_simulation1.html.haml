@@ -1,0 +1,21 @@
+数値を入力してください。
+
+= form_for @about, url: '/about/result1' do |f|
+  .field
+    .field-label
+      = f.label :借入額を千円単位で入力してください。
+    .field-input
+      = f.text_field :debtBalance
+  .field
+    .field-label
+      = f.label :金利（年利）を％で入力してください。
+    .field-input
+      = f.text_field :annualInterestRate
+  .field
+    .field-label
+      = f.label :返済回数（毎月1回返済）を入力してください。
+    .field-input
+      = f.text_field :numberOfPayments
+      
+  .actions
+    = f.submit
