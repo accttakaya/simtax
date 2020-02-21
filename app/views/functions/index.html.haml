@@ -1,28 +1,65 @@
 %div.header
-  %div.header-left
-    SimTax 
-  %div.header-right
-    = link_to "#", class: "header-right__buttons-signup" do
-      SignUp
-    = link_to "#", class: "header-right__buttons-login" do
-      LogIn
+  %div.container
+    %div.header-left
+      SimTax
+    %div.header-right
+      = link_to new_user_registration_path, class: "header-right__buttons-signup" do
+        SignUp
+      - if user_signed_in?
+        = link_to  mypage_path(current_user), class: "header-right__buttons-login" do
+          Mypage
+      - else
+        = link_to  new_user_session_path, class: "header-right__buttons-login" do
+          Login
 
 %div.top-image
   %div.top-image__message
     %h1.top-image__message--main Visualize your Tax
     %p.top-image__message--sub SimTaxは、あたなの税金を視覚化します。
 
+%div.btn-wrapper
+  %div.btn-container
+    %a.btn.signup{:href => "#"} 新規登録
+    %a.btn.facebook{:href => "#"}
+      %span.fa.fa-facebook
+      Facebook IDで登録
+    %a.btn.twitter{:href => "#"}
+      %span.fa.fa-twitter
+      Twitter IDで登録
+    %a.btn.google{:href => "#"}
+      %span.fa.fa-google
+      Googleアカウントで登録
 
-%div.contents
-  %div.contents-functions
-    = link_to function_path(1), class: "contents-functions__btn" do
-      function1
-    = link_to function_path(2), class: "contents-functions__btn" do
-      function2
-    = link_to function_path(3), class: "contents-functions__btn" do
-      function3
-    = link_to function_path(4), class: "contents-functions__btn" do
-      function4
+
+%div.service-wrapper
+  %div.container
+    %div.heading サービス内容
+    %div.contents-functions
+      %div.function
+        %div.function-icon
+          %p 所得税シミュレーション
+        %p.txt-function 各項目を入力すると直ぐに納税額を知ることができ、計算の過程をグラフ化します。収入、経費や所得控除等の増減に対する納税額への影響など感度分析を行えます。また、結果をメールやラインで送信することもできます。
+        = link_to function_path(1), class: "txt-function__btn" do
+          シミュレーションを行う
+      %div.function
+        %div.function-icon
+          %p 所得税情報
+        %p.txt-function 所得税の基礎知識から、税制優遇措置などの情報をタイムリーに更新します。あなたに適用される優遇措置などがあるかもしれません。
+        = link_to function_path(2), class: "txt-function__btn" do
+          所得税情報をみる
+      %div.function
+        %div.function-icon
+          %p 所得税管理
+        %p.txt-function あなたの所得税に関する情報を登録することによって時系列分析することができるようになります。また、チャットボットを使って知りたい情報をいつでも取得することができます。（会員登録が必要になります。）
+        = link_to function_path(3), class: "txt-function__btn" do
+          所得税管理を行う
+      %div.function
+        %div.function-icon
+          %p 税理士相談
+        %p.txt-function 所得税に関する悩みを所得税専門税理士に相談することができます。主にチャットを利用しての相談になります。（このサービスをご利用いただくためには会員登録が必要になります。）
+        = link_to function_path(4), class: "txt-function__btn" do
+          税理士へ相談する
+      %div.clear
 
 %div.contact-form
   %h3.section-title お問い合わせ
@@ -36,10 +73,11 @@
 
 %div.footer
   %div.footer-left
-    SimTax
+    %h1.footer-logo SimTax
+    %P Visualize your Tax
   %div.footer-right
     %ul
-      %li 佐藤事務所概要
+      %li 事務所概要
       %li お問い合わせ
 
 

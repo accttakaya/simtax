@@ -1,3 +1,17 @@
+$pc: 1024px; // PC
+$tab: 680px; // タブレット
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+
 * {
   box-sizing: border-box;
   font-family: 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
@@ -6,47 +20,61 @@
 .header {
   height: 80px;
   width: 100%;
-  border-bottom:1px solid #0099ff;
-  background-color: #0099ff80;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  .header-left {
-    margin-left: 30px;
-    text-align: center;
-    font-size: 30px;
-    line-height: 80px;
-    font-weight: bold;
-    border: 1px solid black;
-  }
-  .header-right {
-    font-size: 20px;
-    margin: 20px 30px 20px 0;
+  position:fixed;
+  top:0;
+  z-index:10;
+  .container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    &__buttons-signup {
-      height: 40px;
+    background-color: #2f5167;
+    color: #ffffff;
+    .header-left {
+      margin-left: 30px;
       text-align: center;
-      margin-right: 20px;
-      border: solid 1px black;
-      line-height: 40px;
-      width: 140px;
-      text-decoration: none;
-      color: black;
+      font-size: 30px;
+      line-height: 80px;
+      font-weight: bold;
+      // border: 1px solid black;
     }
-    &__buttons-login {
-      height: 40px;
-      text-align: center;
-      border: solid 1px black;
-      line-height: 40px;
-      width: 140px;
-      text-decoration: none;
-      color: black;
+    .header-right {
+      font-size: 20px;
+      margin-right:30px;
+      display: flex;
+      justify-content: space-between;
+      &__buttons-signup {
+        height: 80px;
+        text-align: center;
+        margin-right: 20px;
+        line-height: 80px;
+        width: 140px;
+        text-decoration: none;
+        color: #ffffff;
+        background-color:rgba(255, 255, 255, 0.05);
+        transition: all 1s;
+      }
+      &__buttons-signup:hover {
+        background-color:rgba(255, 255, 255, 0.15);
+      }
+      &__buttons-login {
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        width: 140px;
+        text-decoration: none;
+        color: #ffffff;
+        background-color:rgba(255, 255, 255, 0.05);
+        transition: all 1s;
+      }
+      &__buttons-login:hover {
+        background-color:rgba(255, 255, 255, 0.15);
+      }
     }
   }
 }
 
 .top-image {
+  margin-top: 80px;
   height: calc(100vh - 200px);
   background-image: image-url('top-image.png');
   background-size: contain;
@@ -59,34 +87,153 @@
   &__message--main{
     font-size: 55px;
     letter-spacing: 3px;
+    @include pc {
+      font-size: 40px;
+    };
+    @include tab {
+      font-size: 30px;
+    };
       }
   &__message--sub{
     font-size: 20px;
+    @include pc {
+      font-size: 18px;
+    };
+    @include tab {
+      font-size: 15px;
+    };
       }
-  }
+}
 
-.contents {
-  height: 150px;
-  width:100%;
-  // background-color: #fffacd;
-  .contents-functions{
-    // background-color: skyblue;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    &__btn {
-      border: solid 1px black;
-      margin: 30px 0 30px 0;
-      padding: 10px 100px 10px 100px;
-      line-height: 70px;
+.btn-wrapper {
+  margin :50px 20px;
+  text-align: center;
+  .btn-container{
+    .btn {
+      padding: 8px 0;
+      margin-top: 10px;
+      display:inline-block;
+      color: white;
+      opacity: 0.8;
+      border-radius:10px;
+      width: 22%;
+      font-size: 15px;
+      @include pc {
+        width: 40%;
+      };
+      @include tab {
+        width: 100%;
+      };
+      .fa {
+        margin-right: 10px;
+      }
+    }
+    .btn:hover {
+      opacity:1;
+    }
+    .signup {
+      background-color :#239b76;
+      margin-right: 20px;
+    }
+    .facebook {
+      background-color:#3b5998;
+      margin-right: 20px;
+      @include pc {
+        margin-right: 0;
+      };
+    }
+    .twitter {
+      background-color:#55acee;
+      margin-right: 20px;
+    }
+    .google {
+      background-color:#55acee;
     }
   }
 }
 
+.service-wrapper {
+  height: 350px;
+  width:100%;
+  padding-bottom: 80px;
+  // background-color: yellow;
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+    .heading {
+      border-bottom: 2px solid #dee7ec;
+      font-size: 25px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    .contents-functions{
+      margin-top: 10px;
+      width: 100%;
+      height: 100%;
+      // display: flex;
+      // justify-content: space-around;
+      .function {
+        width: 25%;
+        margin: 30px 0px 50px 0px;
+        text-align: center;
+        float: left;
+        @include pc {
+          width: 50%;
+        };
+        @include tab {
+          width: 100%;
+        };
+        .function-icon {
+          margin-bottom: 20px;
+          p {
+            width: 80%;
+            font-size: 15px;
+            border-bottom: 2px solid #dee7ec;
+            margin: 0 auto;
+          }
+        }
+        .txt-function {
+          width:80%;
+          display:inline-block;
+          font-size:12px;
+          color:#b3aeb5;
+          height: 130px;
+          @include pc {
+            height: 120px;
+          };
+          @include tab {
+            height: 100px;
+          };
+          &__btn {
+            text-decoration: none;
+            padding: 10px 20px 10px 20px;
+            line-height: 25px;
+            background-color :#79bee4;
+            color:#d1e3ec;
+            border-radius:10px;
+            display: inline-block;
+            width: 230px;
+            box-shadow:0 5px #6193c2;
+          }
+          &__btn:active {
+            box-shadow: none;
+            position: relative;
+            top: 5px;
+          }
+        }
+      }
+      .clear {
+        clear: left;
+      }
+    }
+  }
+}
+
+
 .contact-form{
   padding-left: 40px;
   padding-right: 40px;
+  margin-top: 20px;
   .section-title{
     border-bottom: 2px solid #dee7ec;
     font-size: 25px;
@@ -115,8 +262,9 @@
   padding: 40px;
   .footer-left{
     float: left;
+    .footer-logo{
     font-size: 30px;
-    border: 1px solid black;
+    }
   }
   .footer-right {
     float: right;
