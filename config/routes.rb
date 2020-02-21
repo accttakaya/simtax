@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   post '/about/result1', to: 'about#result1'
   post '/about/result2', to: 'about#result2'
+  post '/about/result3', to: 'about#result3'
   resources :functions,only: [:show] do
     resources :about,only: [:show]
   end

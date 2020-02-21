@@ -1,8 +1,54 @@
+- if user_signed_in?
+  %div.header
+    %div.container
+      %div.header-left
+        = link_to root_path do
+          SimTax
+      %div.header-right
+        %div.header-right__user-name
+          こんにちは#{current_user.name}さん
+        = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
+          ログアウト
+- else
+  %div.header
+    %div.container
+      %div.header-left
+        = link_to root_path do
+          SimTax
+      %div.header-right
+        = link_to new_user_registration_path, class: "header-right__buttons-signup" do
+          SignUp
+        = link_to  new_user_session_path, class: "header-right__buttons-login" do
+          Login
 
 
-= link_to function_about_path(1,1), class: "contents-functions__btn" do
-  シミュレーション1を行う
-
-= link_to function_about_path(1,2), class: "contents-functions__btn" do
-  シミュレーション2を行う
-
+%div.simulation-wrapper
+  %div.simulation-container
+    %div.simulation-heading
+      シミュレーションの種類
+    %div.simulations
+      %div.simulation-title
+        = link_to function_about_path(1,1), class: "simulation-title__btn" do
+          所得税シミュレーションを行う
+      %p.simulation-txt 給与収入、不動産収入、事業収入などいずれかがある方を対象としたシミュレーションです。
+      %div.simulation-title
+        = link_to function_about_path(1,3), class: "simulation-title__btn" do
+          ライフプランシミュレーションを行う
+      %p.simulation-txt 老後資金の積立や生命保険、年金保険加入を検討されている方を対象としたシミュレーションです。
+      %div.simulation-title
+        = link_to function_about_path(1,3), class: "simulation-title__btn" do
+          ローンシミュレーションを行う
+      %p.simulation-txt 新規で借入を行う方や現在の残高に対する返済スケジュール、借換や繰上返済などを検討されている方を対象としたシミュレーションです。
+      %div.simulation-title
+        = link_to function_about_path(1,4), class: "simulation-title__btn" do
+          不動産シミュレーションを行う
+      %p.simulation-txt 不動産投資を行っている方、また不動産投資をご検討の方を対象としたシミュレーションです。
+      
+%div.footer
+  %div.footer-left
+    %h1.footer-logo SimTax
+    %P Visualize your Tax
+  %div.footer-right
+    %ul
+      %li 事務所概要
+      %li お問い合わせ

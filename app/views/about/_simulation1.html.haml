@@ -1,21 +1,188 @@
-数値を入力してください。
+- if user_signed_in?
+  %div.header
+    %div.container
+      %div.header-left
+        = link_to root_path do
+          SimTax
+      %div.header-right
+        %div.header-right__user-name
+          こんにちは#{current_user.name}さん
+        = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
+          ログアウト
+- else
+  %div.header
+    %div.container
+      %div.header-left
+        = link_to root_path do
+          SimTax
+      %div.header-right
+        = link_to new_user_registration_path, class: "header-right__buttons-signup" do
+          SignUp
+        = link_to  new_user_session_path, class: "header-right__buttons-login" do
+          Login
 
 = form_for @about, url: '/about/result1' do |f|
-  .field
-    .field-label
-      = f.label :借入額を千円単位で入力してください。
-    .field-input
-      = f.text_field :debtBalance
-  .field
-    .field-label
-      = f.label :金利（年利）を％で入力してください。
-    .field-input
-      = f.text_field :annualInterestRate
-  .field
-    .field-label
-      = f.label :返済回数（毎月1回返済）を入力してください。
-    .field-input
-      = f.text_field :numberOfPayments
-      
-  .actions
-    = f.submit
+  %div.simulation1-input-wrapper
+    %div.simulation1-input-container
+      %div.simulation1-input-heading
+        所得税シミュレーションを行う。（以下項目に円単位で入力してください。）
+      %div.simulations1-input
+        %div.simulation1-input-title 給与収入
+        .field-sim1
+          .field-label
+            = f.label :給与収入
+          .field-input
+            = f.text_field :salaryIncome
+        %div.simulation1-input-title 事業収入、経費
+        .field-sim1
+          .field-label
+            = f.label :売上
+          .field-input
+            = f.text_field :amountOfSales
+        .field-sim1
+          .field-label
+            = f.label :その他の収入
+          .field-input
+            = f.text_field :otherIncomeBI
+        .field-sim1
+          .field-label
+            = f.label :売上原価
+          .field-input
+            = f.text_field :costOfSales
+        .field-sim1
+          .field-label
+            = f.label :その他の経費
+          .field-input
+            = f.text_field :otherExpensesBI
+        %div.simulation1-input-title 不動産収入、経費
+        .field-sim1
+          .field-label
+            = f.label :賃貸収入
+          .field-input
+            = f.text_field :rent
+        .field-sim1
+          .field-label
+            = f.label :その他の収入
+          .field-input
+            = f.text_field :otherIncomeREI
+        .field-sim1
+          .field-label
+            = f.label :借入金利息
+          .field-input
+            = f.text_field :borrowingInterest
+        .field-sim1
+          .field-label
+            = f.label :減価償却費
+          .field-input
+            = f.text_field :depreciation
+        .field-sim1
+          .field-label
+            = f.label :その他の経費
+          .field-input
+            = f.text_field :otherExpensesREI
+        
+        %div.simulation1-input-title 所得控除
+        .field-sim1
+          .field-label
+            = f.label :雑損控除
+          .field-input
+            = f.text_field :miscellaneousDeduction
+        .field-sim1
+          .field-label
+            = f.label :医療費控除
+          .field-input
+            = f.text_field :medicalExpensesDeduction
+        .field-sim1
+          .field-label
+            = f.label :社会保険料控除
+          .field-input
+            = f.text_field :socialInsurancePremiumDeduction
+        .field-sim1
+          .field-label
+            = f.label :小規模企業共済等掛金控除
+          .field-input
+            = f.text_field :creditDeductionForSmallBusinessMutualAid
+        .field-sim1
+          .field-label
+            = f.label :生命保険料控除
+          .field-input
+            = f.text_field :lifeInsuranceDeduction
+        .field-sim1
+          .field-label
+            = f.label :地震保険料控除
+          .field-input
+            = f.text_field :earthquakeInsuranceDeduction
+        .field-sim1
+          .field-label
+            = f.label :寄附金控除
+          .field-input
+            = f.text_field :donationDeduction
+        .field-sim1
+          .field-label
+            = f.label :障害者控除
+          .field-input
+            = f.text_field :disabledPersonDeduction
+        .field-sim1
+          .field-label
+            = f.label :寡婦（寡夫）控除
+          .field-input
+            = f.text_field :widowDeduction
+        .field-sim1
+          .field-label
+            = f.label :勤労学生控除
+          .field-input
+            = f.text_field :workingStudentDeduction
+        .field-sim1
+          .field-label
+            = f.label :配偶者控除
+          .field-input
+            = f.text_field :spouseDeduction
+        .field-sim1
+          .field-label
+            = f.label :配偶者特別控除
+          .field-input
+            = f.text_field :spouseSpecialDeduction
+        .field-sim1
+          .field-label
+            = f.label :扶養控除
+          .field-input
+            = f.text_field :dependentDeduction
+        .field-sim1
+          .field-label
+            = f.label :基礎控除
+          .field-input
+            = f.text_field :basicDeduction
+        %div.simulation1-input-title 青色申告特別控除
+        .field-sim1
+          .field-label
+            = f.label :青色申告特別控除額
+          .field-input
+            = f.text_field :blueTaxReturnSpecialDeductionREI
+        %div.simulation1-input-title 税額控除等
+        .field-sim1
+          .field-label
+            = f.label :税額控除
+          .field-input
+            = f.text_field :taxCredit
+        .field-sim1
+          .field-label
+            = f.label :源泉徴収税額
+          .field-input
+            = f.text_field :withholdingTaxAmount
+        .field-sim1
+          .field-label
+            = f.label :予定納税額
+          .field-input
+            = f.text_field :estimatedTaxPaymentAmount
+
+        .actions
+          = f.submit "結果を確認する", { :class => 'submit-btn-sim1' }
+
+%div.footer
+  %div.footer-left
+    %h1.footer-logo SimTax
+    %P Visualize your Tax
+  %div.footer-right
+    %ul
+      %li 事務所概要
+      %li お問い合わせ

@@ -1,14 +1,19 @@
 %div.header
   %div.container
     %div.header-left
-      SimTax
-    %div.header-username
-      hello ユーザー番号#{@number}さん！
+      = link_to root_path do
+        SimTax
     %div.header-right
-      = link_to destroy_user_session_path, method: :delete, class: 'btn' do
+      %div.header-right__user-name
+        こんにちは#{current_user.name}さん
+      = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
         ログアウト
-      = link_to edit_user_path(current_user), class: "hoge" do
-        ユーザ情報編集
+
+
+   
+      
+= link_to edit_user_path(current_user), class: "hoge" do
+  ユーザ情報編集
 
 
 

@@ -5,11 +5,11 @@ class AboutController < ApplicationController
     @about = About.new
   end
 
-  def result1
+  def result3
     @debtSimulation = debtSimulation
   end
 
-  def result2
+  def result1
     @taxSimulation1  = taxSimulation[0]
     @taxSimulation2  = taxSimulation[1]
     @taxSimulation3  = taxSimulation[2]

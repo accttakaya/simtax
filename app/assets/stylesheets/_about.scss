@@ -2,52 +2,174 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.chart--header {
-  height: 20px;
-  background-color: skyblue;
-  color: blue;
-  font-family: monospace;
-}
 
-.chart--navbar {
-  .chart--navbar__results {
-    display: flex;
-    justify-content: space-between;
-    .chart--navbar__results--result {
-      background-color:pink;
-      width: calc(100%/3);
-      border: 2px solid salmon;
-      text-align: center;
+// 値入力画面（simulation1）----------------------------------------------------------
+
+.simulation1-input-wrapper {
+  width:100%;
+  padding-bottom: 90px;
+  .simulation1-input-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 100px;
+    .simulation1-input-heading {
+      border-bottom: 2px solid #dee7ec;
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    .simulations1-input{
+      margin-top: 20px;
+      padding-left: 10px;
+      padding-right: 25px;
+      .simulation1-input-title {
+        padding-bottom: 5px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #dee7ec;
+        width: 200px;
+      }
+      .field-sim1 {
+        display:inline-block;
+        margin-right: 25px;
+        margin-left: 25px;
+        margin-bottom: 10px;
+      }
+      .actions {
+        text-align: center;
+        margin-top: 50px;
+        height: 50px;
+        .submit-btn-sim1 {
+          text-decoration: none;
+          padding: 5px 10px 5px 10px;
+          line-height: 25px;
+          background-color :#79bee4;
+          color:#d1e3ec;
+          border-radius:10px;
+          display: inline-block;
+          width: 50%;
+          box-shadow:0 3px #6193c2;
+        }
+        .submit-btn-sim1:active {
+          box-shadow: none;
+          position: relative;
+          top: 3px;
+        }
+      }
     }
   }
 }
 
-.chart--contents--upper {
-  width: 100%;
-  display: flex;
-  .chart--contents--upper__chart1 {
-    width: 33%;
-  }
-  .chart--contents--upper__chart2 {
-    width: 34%;
-  }
-  .chart--contents--upper__chart3 {
-    width: 33%;
+
+
+
+
+// 値入力画面（simulation3）----------------------------------------------------------
+
+.simulation3-input-wrapper {
+  width:100%;
+  padding-bottom: 90px;
+  height: 610px;
+  .simulation3-input-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 100px;
+    .simulation3-input-heading {
+      border-bottom: 2px solid #dee7ec;
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    .simulations3-input{
+      margin-top: 20px;
+      padding-left: 10px;
+      padding-right: 25px;
+      .simulation3-input-title {
+        padding-bottom: 5px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #dee7ec;
+        width: 200px;
+      }
+      .field-sim3 {
+        display:inline-block;
+        margin-right: 25px;
+        margin-left: 25px;
+        margin-bottom: 10px;
+      }
+      .actions {
+        text-align: center;
+        margin-top: 50px;
+        height: 50px;
+        .submit-btn-sim3 {
+          text-decoration: none;
+          padding: 5px 10px 5px 10px;
+          line-height: 25px;
+          background-color :#79bee4;
+          color:#d1e3ec;
+          border-radius:10px;
+          display: inline-block;
+          width: 50%;
+          box-shadow:0 3px #6193c2;
+        }
+        .submit-btn-sim3:active {
+          box-shadow: none;
+          position: relative;
+          top: 3px;
+        }
+      }
+    }
   }
 }
 
-.chart--contents--bottom {
-  width: 100%;
-  display: flex;
-  .chart--contents--bottom__chart4 {
-    width: 34%;
-  }
-  .chart--contents--bottom__chart5 {
-    width: 33%;
-    height: 100%;
-  }
-  .chart--contents--bottom__chart6 {
-    width: 33%;
-    height: 100%;
+
+
+// chartjs結果画面(result1)--------------------------------------------------------------------
+
+.simulation1-result-wrapper {
+  width:100%;
+  padding-bottom: 90px;
+  .simulation1-result-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 100px;
+    .simulation1-result-heading {
+      border-bottom: 2px solid #dee7ec;
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    .simulations1-result{
+      margin-top: 20px;
+      padding-left: 10px;
+      padding-right: 25px;
+      .chart--navbar__results {
+        display: flex;
+        justify-content: space-between;
+        .chart--navbar__results--result {
+          background-color:pink;
+          width: calc(100%/3);
+          border: 2px solid salmon;
+          text-align: center;
+          margin: 0 15px 15px 15px;
+        }
+      }
+      .simulation1-result-title {
+        padding-bottom: 5px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #dee7ec;
+        width: 200px;
+      }
+      .simulation1-result-analysis {
+        display: flex;
+        justify-content: space-between;
+        .simulation1-result-txt{
+          width: 40%;
+        }
+        .chart--contents__chart {
+          width: 50%;
+        }
+      }
+    }
   }
 }
+
+// ここまでが結果画面-----------------------------------------
