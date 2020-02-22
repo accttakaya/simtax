@@ -67,15 +67,6 @@
           税理士へ相談する
       %div.clear
 
-%div.contact-form
-  %h3.section-title お問い合わせ
-  %p メールアドレス（必須）
-  %input/
-  %p お問い合わせ内容（必須）
-  %textarea
-  %p ※必須項目は必ずご入力ください
-  %input.contact-submit{:type => "submit", :value => "送信"}/
-
 
 %div.footer
   %div.footer-left
@@ -84,7 +75,7 @@
   %div.footer-right
     %ul
       %li 事務所概要
-      %li お問い合わせ
-
-
+      %li 
+        = link_to "お問い合わせ", inquiry_path
+      
       

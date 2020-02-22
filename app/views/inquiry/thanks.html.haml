@@ -1,0 +1,40 @@
+- if user_signed_in?
+  %div.header
+    %div.container
+      %div.header-left
+        = link_to root_path do
+          SimTax
+      %div.header-right
+        %div.header-right__user-name
+          こんにちは#{current_user.name}さん
+        = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
+          ログアウト
+- else
+  %div.header
+    %div.container
+      %div.header-left
+        = link_to root_path do
+          SimTax
+      %div.header-right
+        = link_to new_user_registration_path, class: "header-right__buttons-signup" do
+          SignUp
+        = link_to  new_user_session_path, class: "header-right__buttons-login" do
+          Login
+
+
+.page-header
+  %h1 お問い合わせいただきありがとうございました。
+  %p 3営業日以内にご回答いたします。
+
+
+
+
+%div.footer.footer-inquiry
+  %div.footer-left
+    %h1.footer-logo SimTax
+    %P Visualize your Tax
+  %div.footer-right
+    %ul
+      %li 事務所概要
+      %li 
+        = link_to "お問い合わせ", inquiry_path

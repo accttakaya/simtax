@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :about,only: [:show]
   end
   resources :mypage,only: [:show]
+
+  get 'inquiry' => 'inquiry#index'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/thanks' => 'inquiry#thanks'
   
 
 end
