@@ -11,9 +11,34 @@
 
 
    
-      
-= link_to edit_user_path(current_user), class: "hoge" do
-  ユーザ情報編集
+%div.mypage-navber
+  %div.mypage-contents
+    = link_to edit_user_path(current_user), class: "mypage-contents__edit-user" do
+      ユーザ情報編集
 
+    = link_to new_group_path, class: "mypage-contents__new-group" do
+      相談する税理士を検索する
+
+    -# = link_to edit_group_path, class: "mypage-contents__edit-group" do
+    -#   掲示板情報編集
+
+%div.consultants-index
+  %div.consultants-title
+    相談内容一覧
+  %div.consultant
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group), class: "group__name" do
+          = group.name
+        .group__member
+          .group__member-accountant
+            - group.user_ids.each do |id|
+              - if User.find(id).acct == false
+              - else
+                担当税理士: #{User.find(id).name}税理士
+        .group-delete
+          = link_to "/groups/#{group.id}", method: :delete, class: "group-delet-button" do
+            相談を終了する
+          
 
 

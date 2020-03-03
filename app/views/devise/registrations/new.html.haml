@@ -28,5 +28,10 @@
             = f.label :password_confirmation
           .field-input
             = f.password_field :password_confirmation, autocomplete: "off"
+        .field
+          .field-label
+            = f.label :あなたは税理士ですか？
+          .field-input
+            = f.select :acct, [['はい税理士です', true], ['いいえ税理士ではありません', false]]
         .actions
           = f.submit "Create Account", class: 'btn'
