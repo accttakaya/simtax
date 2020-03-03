@@ -77,8 +77,8 @@
       結果は以下のとおりです。
     %div.simulations1-result
       %ul.chart--navbar__results
-        %li.chart--navbar__results--result 総所得:#{@taxSimulation7[0]/1000}千円
-        %li.chart--navbar__results--result 納税額:#{@taxSimulation7[1]/1000}千円
+        %li.chart--navbar__results--result 総所得:#{(@taxSimulation7[0]/1000).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}千円
+        %li.chart--navbar__results--result 納税額:#{(@taxSimulation7[1]/1000).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}千円
         %li.chart--navbar__results--result 総所得に占める所得税の割合:#{@taxSimulation7[2]}％
       ここにサマリをかく。
       %div.simulation1-result-title 課税所得
@@ -148,7 +148,7 @@
                     }
                 }
             });
-        %div.simulation1-result-txt ここにコメントを記載ああああああああああああああああああああああああああああああああああああああああああああ
+        %div.simulation1-result-txt ここにコメントを記載
       %div.simulation1-result-title 課税所得と税額
       %div.simulation1-result-analysis
         .chart--contents__chart
@@ -263,7 +263,7 @@
                     },
                 }
             });
-        %div.simulation1-result-txt ここにコメントを記載いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+        %div.simulation1-result-txt ここにコメントを記載
       %div.simulation1-result-title 納税(還付)額
       %div.simulation1-result-analysis
         .chart--contents__chart
@@ -332,7 +332,7 @@
                     }
                 }
             });
-        %div.simulation1-result-txt ここにコメントを記載うううううううううううううううううううううううううううううううううううううううううううう
+        %div.simulation1-result-txt ここにコメントを記載
       %div.simulation1-result-title 【内訳】課税標準
       %div.simulation1-result-analysis
         .chart--contents__chart
@@ -384,7 +384,7 @@
                     }
                 }
             });
-        %div.simulation1-result-txt ここにコメントを記載うううううううううううううううううううううううううううううううううううううううううううう
+        %div.simulation1-result-txt ここにコメントを記載
       %div.simulation1-result-title 【内訳】所得控除
       %div.simulation1-result-analysis
         .chart--contents__chart
@@ -410,7 +410,7 @@
                     }
                 }
             });
-        %div.simulation1-result-txt ここにコメントを記載うううううううううううううううううううううううううううううううううううううううううううう
+        %div.simulation1-result-txt ここにコメントを記載
       %div.simulation1-result-title 【内訳】税額控除等内訳
       %div.simulation1-result-analysis
         .chart--contents__chart
@@ -436,7 +436,7 @@
                     }
                 }
             });
-        %div.simulation1-result-txt ここにコメントを記載うううううううううううううううううううううううううううううううううううううううううううう
+        %div.simulation1-result-txt ここにコメントを記載
 
 %div.footer
   %div.footer-left

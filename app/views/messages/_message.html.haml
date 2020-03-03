@@ -1,0 +1,8 @@
+.message{data: {message: {id: message.id}}}
+  .message-property
+    .message-property__whose
+      = message.user.name
+    .message-property__when
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .message-text
+    = message.content

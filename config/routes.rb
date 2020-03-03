@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get 'inquiry' => 'inquiry#index'
   post 'inquiry/confirm' => 'inquiry#confirm'
   post 'inquiry/thanks' => 'inquiry#thanks'
-  
+
+  resources :groups, only: [:new, :create, :edit, :update, :destroy] do
+    resources :messages, only: [:index, :create]
+  end
 
 end

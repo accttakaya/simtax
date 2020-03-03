@@ -53,9 +53,9 @@
       結果は以下のとおりです。
     %div.simulations1-result
       %ul.chart--navbar__results
-        %li.chart--navbar__results--result 支払総額:千円
-        %li.chart--navbar__results--result 利息総額:千円
-        %li.chart--navbar__results--result 支払総額に占める利息の割合:％
+        %li.chart--navbar__results--result 支払総額:#{(totalRepayment/1000).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}千円
+        %li.chart--navbar__results--result 利息総額:#{((totalRepayment-array2[0])/1000).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}千円
+        %li.chart--navbar__results--result 支払総額に占める利息の割合:#{(((totalRepayment-array2[0]).to_f/totalRepayment.to_f)*100).to_i}％
       ここにサマリをかく。
       %div.simulation1-result-title ローンシミュレーション
       %div.simulation1-result-analysis
@@ -100,7 +100,7 @@
                     }
                 }
             });
-        %div.simulation1-result-txt ここにコメントを記載ああああああああああああああああああああああああああああああああああああああああああああ
+        %div.simulation1-result-txt ここにコメントを記載
 
 %div.footer
   %div.footer-left

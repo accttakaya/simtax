@@ -1,0 +1,32 @@
+%div.header
+  %div.container
+    %div.header-left
+      = link_to root_path do
+        SimTax
+    %div.header-right
+      %div.header-right__user-name
+        こんにちは#{current_user.name}さん
+      = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
+        ログアウト
+
+
+   
+%div.message-navber
+  %div.message-contents
+    .group-summary__name
+      = @group.name
+    .group-summary__member
+      Member:
+      - @users.each do |user|
+        = "#{user.name}さん"
+
+
+      
+.messages-index
+  = render @messages
+
+
+.form
+  = form_for [@group, @message] do |f|
+    = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+    = f.submit '送る', class: 'form__submit'

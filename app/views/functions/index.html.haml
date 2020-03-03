@@ -57,14 +57,16 @@
         %div.function-icon
           %p 所得税管理
         %p.txt-function あなたの所得税に関する情報を登録することによって時系列分析することができるようになります。また、チャットボットを使って知りたい情報をいつでも取得することができます。（会員登録が必要になります。）
-        = link_to function_path(3), class: "txt-function__btn" do
-          所得税管理を行う
+        - if user_signed_in?
+          = link_to function_path(3), class: "txt-function__btn" do
+            所得税管理を行う
       %div.function
         %div.function-icon
           %p 税理士相談
         %p.txt-function 所得税に関する悩みを所得税専門税理士に相談することができます。主にチャットを利用しての相談になります。（会員登録が必要になります。）
-        = link_to function_path(4), class: "txt-function__btn" do
-          税理士へ相談する
+        - if user_signed_in?
+          = link_to mypage_path(current_user), class: "txt-function__btn" do
+            税理士へ相談する
       %div.clear
 
 

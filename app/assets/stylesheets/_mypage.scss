@@ -3,47 +3,88 @@
   font-family: 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
 }
 
-// .header {
-//   height: 50px;
-//   width: 100%;
-//   .container {
-//     width: 100%;
-//     display: flex;
-//     justify-content: space-between;
-//     background-color:black;
-//     color: #ffffff;
-//     .header-left {
-//       margin-left: 30px;
-//       text-align: center;
-//       font-size: 30px;
-//       line-height: 80px;
-//       font-weight: bold;
-//       border: 1px solid black;
-//     }
-//     .header-right {
-//       font-size: 20px;
-//       margin: 20px 30px 20px 0;
-//       display: flex;
-//       justify-content: space-between;
-//       &__buttons-signup {
-//         height: 40px;
-//         text-align: center;
-//         margin-right: 20px;
-//         // border: solid 1px black;
-//         line-height: 40px;
-//         width: 140px;
-//         text-decoration: none;
-//         color: #ffffff;
-//       }
-//       &__buttons-login {
-//         height: 40px;
-//         text-align: center;
-//         // border: solid 1px black;
-//         line-height: 40px;
-//         width: 140px;
-//         text-decoration: none;
-//         color: #ffffff;
-//       }
-//     }
-//   }
-// }
+
+.mypage-navber {
+  width: 100%;
+  height: 50px;
+  .mypage-contents {
+    
+    display: flex;
+    justify-content: space-between;
+    line-height: 50px;
+    text-align: center;
+    background-color: skyblue;
+    &__edit-user{
+      text-decoration: none;
+      color: white;
+      background-color: skyblue;
+      width: 50%;
+      border: 1px solid white;
+    }
+    &__new-group{
+      text-decoration: none;
+      color: white;
+      background-color: skyblue;
+      width: 50%;
+      border: 1px solid white;
+    }
+    // &__edit-group{
+    //   text-decoration: none;
+    //   color: white;
+    //   background-color: skyblue;
+    //   width: 33%;
+    //   border: 1px solid white;
+    // }
+  }
+}
+
+.consultants-index {
+  height: 900px;
+  width: 100%;
+  background-image: image-url('paper-3213924__480.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 80px;
+  .consultants-title{
+    margin-left: 80px;
+    font-size: 30px;
+    color: white;
+    background-color: blue;
+    width: 200px;
+  }
+  .consultant {
+    margin: 0 80px 0 80px;
+    width: calc(100%-160px);
+    opacity: 0.9;
+    .group {
+      width: calc(100%/2);
+      height: 100px;
+      float: left;
+      background-color: white;
+      border: 1px solid black;
+      &__name{
+        font-size: 25px;
+        text-decoration: none;
+        margin-left: 5px;
+      }
+      &__member{
+        text-align: left;
+        margin-left: 15px;
+       
+      }
+      .group-delete {
+        text-align: center;
+        font-size: 25px;
+        text-decoration: none;
+        opacity: 1.0;
+        .group-delet-button {
+          text-decoration: none;
+          background-color: red;
+          border: 3px solid black;
+          padding: 3px;
+        }
+      }
+    }
+  }
+}
