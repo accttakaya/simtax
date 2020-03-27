@@ -67,6 +67,9 @@
         - if user_signed_in?
           = link_to mypage_path(current_user), class: "txt-function__btn" do
             税理士へ相談する
+        - else
+          = link_to new_user_registration_path, class: "txt-function__btn" do
+            要会員登録
       %div.clear
 
 
