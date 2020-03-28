@@ -82,6 +82,11 @@ li {
         padding-right: 15px;
       }
     }
+    .chechboxacct {
+      input[type=checkbox] {
+        transform: scale(2);
+      }
+    }
   }
 }
 
