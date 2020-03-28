@@ -108,64 +108,64 @@ class AboutController < ApplicationController
       :withholdingTaxAmount, 
       :estimatedTaxPaymentAmount,
     )
-    # salaryIncome                              = about[:salaryIncome].to_i
-    # amountOfSales                             = about[:amountOfSales].to_i
-    # otherIncomeBI                             = about[:otherIncomeBI].to_i
-    # costOfSales                               = about[:costOfSales].to_i
-    # otherExpensesBI                           = about[:otherExpensesBI].to_i
-    # rent                                      = about[:rent].to_i
-    # otherIncomeREI                            = about[:otherIncomeREI].to_i
-    # borrowingInterest                         = about[:borrowingInterest].to_i
-    # depreciation                              = about[:depreciation].to_i
-    # otherExpensesREI                          = about[:otherExpensesREI].to_i
-    # miscellaneousDeduction                    = about[:miscellaneousDeduction].to_i
-    # medicalExpensesDeduction                  = about[:medicalExpensesDeduction].to_i
-    # socialInsurancePremiumDeduction           = about[:socialInsurancePremiumDeduction].to_i
-    # creditDeductionForSmallBusinessMutualAid  = about[:creditDeductionForSmallBusinessMutualAid].to_i
-    # lifeInsuranceDeduction                    = about[:lifeInsuranceDeduction].to_i
-    # earthquakeInsuranceDeduction              = about[:earthquakeInsuranceDeduction].to_i
-    # donationDeduction                         = about[:donationDeduction].to_i
-    # disabledPersonDeduction                   = about[:disabledPersonDeduction].to_i
-    # widowDeduction                            = about[:widowDeduction].to_i
-    # workingStudentDeduction                   = about[:workingStudentDeduction].to_i
-    # spouseDeduction                           = about[:spouseDeduction].to_i
-    # spouseSpecialDeduction                    = about[:spouseSpecialDeduction].to_i
-    # dependentDeduction                        = about[:dependentDeduction].to_i
-    # basicDeduction                            = about[:basicDeduction].to_i
-    # blueTaxReturnSpecialDeductionREI          = about[:blueTaxReturnSpecialDeductionREI].to_i
-    # taxCredit                                 = about[:taxCredit].to_i
-    # withholdingTaxAmount                      = about[:withholdingTaxAmount].to_i
-    # estimatedTaxPaymentAmount                 = about[:estimatedTaxPaymentAmount].to_i
+    salaryIncome                              = about[:salaryIncome].to_i
+    amountOfSales                             = about[:amountOfSales].to_i
+    otherIncomeBI                             = about[:otherIncomeBI].to_i
+    costOfSales                               = about[:costOfSales].to_i
+    otherExpensesBI                           = about[:otherExpensesBI].to_i
+    rent                                      = about[:rent].to_i
+    otherIncomeREI                            = about[:otherIncomeREI].to_i
+    borrowingInterest                         = about[:borrowingInterest].to_i
+    depreciation                              = about[:depreciation].to_i
+    otherExpensesREI                          = about[:otherExpensesREI].to_i
+    miscellaneousDeduction                    = about[:miscellaneousDeduction].to_i
+    medicalExpensesDeduction                  = about[:medicalExpensesDeduction].to_i
+    socialInsurancePremiumDeduction           = about[:socialInsurancePremiumDeduction].to_i
+    creditDeductionForSmallBusinessMutualAid  = about[:creditDeductionForSmallBusinessMutualAid].to_i
+    lifeInsuranceDeduction                    = about[:lifeInsuranceDeduction].to_i
+    earthquakeInsuranceDeduction              = about[:earthquakeInsuranceDeduction].to_i
+    donationDeduction                         = about[:donationDeduction].to_i
+    disabledPersonDeduction                   = about[:disabledPersonDeduction].to_i
+    widowDeduction                            = about[:widowDeduction].to_i
+    workingStudentDeduction                   = about[:workingStudentDeduction].to_i
+    spouseDeduction                           = about[:spouseDeduction].to_i
+    spouseSpecialDeduction                    = about[:spouseSpecialDeduction].to_i
+    dependentDeduction                        = about[:dependentDeduction].to_i
+    basicDeduction                            = about[:basicDeduction].to_i
+    blueTaxReturnSpecialDeductionREI          = about[:blueTaxReturnSpecialDeductionREI].to_i
+    taxCredit                                 = about[:taxCredit].to_i
+    withholdingTaxAmount                      = about[:withholdingTaxAmount].to_i
+    estimatedTaxPaymentAmount                 = about[:estimatedTaxPaymentAmount].to_i
   
   # kari
-  salaryIncome                              = 10000000
-  amountOfSales                             = 10000000
-  otherIncomeBI                             = 2000000
-  costOfSales                               = 6000000
-  otherExpensesBI                           = 3000000
-  rent                                      = 5000000
-  otherIncomeREI                            = 1000000
-  borrowingInterest                         = 1000000
-  depreciation                              = 2000000
-  otherExpensesREI                          = 500000
-  miscellaneousDeduction                    = 10000
-  medicalExpensesDeduction                  = 20000
-  socialInsurancePremiumDeduction           = 500000
-  creditDeductionForSmallBusinessMutualAid  = 30000
-  lifeInsuranceDeduction                    = 15000
-  earthquakeInsuranceDeduction              = 10000
-  donationDeduction                         = 20000
-  disabledPersonDeduction                   = 30000
-  widowDeduction                            = 40000
-  workingStudentDeduction                   = 20000
-  spouseDeduction                           = 60000
-  spouseSpecialDeduction                    = 50000
-  dependentDeduction                        = 300000
-  basicDeduction                            = 650000
-  blueTaxReturnSpecialDeductionREI          = 650000
-  taxCredit                                 = 100000
-  withholdingTaxAmount                      = 600000
-  estimatedTaxPaymentAmount                 = 100000
+  # salaryIncome                              = 10000000
+  # amountOfSales                             = 10000000
+  # otherIncomeBI                             = 2000000
+  # costOfSales                               = 6000000
+  # otherExpensesBI                           = 3000000
+  # rent                                      = 5000000
+  # otherIncomeREI                            = 1000000
+  # borrowingInterest                         = 1000000
+  # depreciation                              = 2000000
+  # otherExpensesREI                          = 500000
+  # miscellaneousDeduction                    = 10000
+  # medicalExpensesDeduction                  = 20000
+  # socialInsurancePremiumDeduction           = 500000
+  # creditDeductionForSmallBusinessMutualAid  = 30000
+  # lifeInsuranceDeduction                    = 15000
+  # earthquakeInsuranceDeduction              = 10000
+  # donationDeduction                         = 20000
+  # disabledPersonDeduction                   = 30000
+  # widowDeduction                            = 40000
+  # workingStudentDeduction                   = 20000
+  # spouseDeduction                           = 60000
+  # spouseSpecialDeduction                    = 50000
+  # dependentDeduction                        = 300000
+  # basicDeduction                            = 650000
+  # blueTaxReturnSpecialDeductionREI          = 650000
+  # taxCredit                                 = 100000
+  # withholdingTaxAmount                      = 600000
+  # estimatedTaxPaymentAmount                 = 100000
   # kari
     
     incomeDeductionArray = [
@@ -190,7 +190,7 @@ class AboutController < ApplicationController
       def employmentIncomeDeduction(salaryIncome) #給与所得控除
         if salaryIncome <= 1800000
           if salaryIncome * 0.4 <= 650000
-            650000
+            salaryIncome * 0.4
           else
             salaryIncome * 0.4
           end
