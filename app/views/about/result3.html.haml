@@ -23,93 +23,94 @@
 - @debtSimulation.each_with_index do |result,i|
   - labels << i
 -# ---------------------ここまで変数整理---------------------
+.wrapper
+  - if user_signed_in?
+    %div.header
+      %div.container
+        %div.header-left
+          = link_to root_path do
+            SimTax
+        %div.header-right
+          %div.header-right__user-name
+            こんにちは#{current_user.name}さん
+          = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
+            ログアウト
+  - else
+    %div.header
+      %div.container
+        %div.header-left
+          = link_to root_path do
+            SimTax
+        %div.header-right
+          = link_to new_user_registration_path, class: "header-right__buttons-signup" do
+            SignUp
+          = link_to  new_user_session_path, class: "header-right__buttons-login" do
+            Login
 
-- if user_signed_in?
-  %div.header
-    %div.container
-      %div.header-left
-        = link_to root_path do
-          SimTax
-      %div.header-right
-        %div.header-right__user-name
-          こんにちは#{current_user.name}さん
-        = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
-          ログアウト
-- else
-  %div.header
-    %div.container
-      %div.header-left
-        = link_to root_path do
-          SimTax
-      %div.header-right
-        = link_to new_user_registration_path, class: "header-right__buttons-signup" do
-          SignUp
-        = link_to  new_user_session_path, class: "header-right__buttons-login" do
-          Login
+  %div.simulation1-result-wrapper
+    %div.simulation1-result-container
+      %div.simulation1-result-heading
+        結果は以下のとおりです。
+      %div.simulations1-result
+        %ul.chart--navbar__results
+          %li.chart--navbar__results--result 支払総額:#{(totalRepayment/1000).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}千円
+          %li.chart--navbar__results--result 利息総額:#{((totalRepayment-array2[0])/1000).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}千円
+          %li.chart--navbar__results--result 支払総額に占める利息の割合:#{(((totalRepayment-array2[0]).to_f/totalRepayment.to_f)*100).to_i}％
+        ここにサマリをかく。
+        %div.simulation1-result-title ローンシミュレーション
+        %div.simulation1-result-analysis
+          .chart--contents__chart
+            %canvas#myChart{:height => "150", :width => "200"}
+            :javascript
+              var array1 = #{array1}
+              var array2 = #{array2}
+              var labels = #{labels}
+              var ctx = document.getElementById('myChart').getContext('2d');
+              var myChart = new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                      labels: labels,
+                      datasets: [{
+                          label: '要支払額',
+                          data: array1,
+                          backgroundColor: [],
+                          borderColor: [
+                              'rgba(75, 192, 192, 1)'
+                          ],
+                          borderWidth: 1
+                      },{
+                          label: '借入金元金',
+                          data: array2,
+                          backgroundColor: [
+                              'rgba(255, 159, 64, 0.2)'
+                          ],
+                          borderColor: [
+                              'rgba(255, 99, 132, 1)',
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      scales: {
+                          yAxes: [{
+                              ticks: {
+                                  beginAtZero: true
+                              }
+                          }]
+                      }
+                  }
+              });
+          %div.simulation1-result-txt ここにコメントを記載
 
-%div.simulation1-result-wrapper
-  %div.simulation1-result-container
-    %div.simulation1-result-heading
-      結果は以下のとおりです。
-    %div.simulations1-result
-      %ul.chart--navbar__results
-        %li.chart--navbar__results--result 支払総額:#{(totalRepayment/1000).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}千円
-        %li.chart--navbar__results--result 利息総額:#{((totalRepayment-array2[0])/1000).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse}千円
-        %li.chart--navbar__results--result 支払総額に占める利息の割合:#{(((totalRepayment-array2[0]).to_f/totalRepayment.to_f)*100).to_i}％
-      ここにサマリをかく。
-      %div.simulation1-result-title ローンシミュレーション
-      %div.simulation1-result-analysis
-        .chart--contents__chart
-          %canvas#myChart{:height => "150", :width => "200"}
-          :javascript
-            var array1 = #{array1}
-            var array2 = #{array2}
-            var labels = #{labels}
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: '要支払額',
-                        data: array1,
-                        backgroundColor: [],
-                        borderColor: [
-                            'rgba(75, 192, 192, 1)'
-                        ],
-                        borderWidth: 1
-                    },{
-                        label: '借入金元金',
-                        data: array2,
-                        backgroundColor: [
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-        %div.simulation1-result-txt ここにコメントを記載
-
-%div.footer
-  %div.footer-left
-    %h1.footer-logo SimTax
-    %P Visualize your Tax
-  %div.footer-right
-    %ul
-      %li 事務所概要
-      %li お問い合わせ
+  %div.footer
+    %div.footer-left
+      %h1.footer-logo SimTax
+      %P Visualize your Tax
+    %div.footer-right
+      %ul
+        -# %li 事務所概要
+        %li
+          = link_to "お問い合わせ", inquiry_path
 
 
 

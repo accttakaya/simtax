@@ -24,18 +24,18 @@
 
 %div.consultants-index
   %div.consultants-title
-    相談内容一覧
+    相談一覧
   %div.consultant
-    - current_user.groups.each do |group|
+    - current_user.groups.each_with_index do |group,i|
       .group
         = link_to group_messages_path(group), class: "group__name" do
-          = group.name
+          = "#{i+1}: #{group.name}"
         .group__member
           .group__member-accountant
             - group.user_ids.each do |id|
               - if User.find(id).acct == false
               - else
-                担当税理士: #{User.find(id).name}税理士
+                ■担当税理士: #{User.find(id).name}税理士
         .group-delete
           = link_to "/groups/#{group.id}", method: :delete, class: "group-delet-button" do
             相談を終了する

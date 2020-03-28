@@ -1,56 +1,58 @@
-- if user_signed_in?
-  %div.header
-    %div.container
-      %div.header-left
-        = link_to root_path do
-          SimTax
-      %div.header-right
-        %div.header-right__user-name
-          こんにちは#{current_user.name}さん
-        = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
-          ログアウト
-- else
-  %div.header
-    %div.container
-      %div.header-left
-        = link_to root_path do
-          SimTax
-      %div.header-right
-        = link_to new_user_registration_path, class: "header-right__buttons-signup" do
-          SignUp
-        = link_to  new_user_session_path, class: "header-right__buttons-login" do
-          Login
+.wrapper
+  - if user_signed_in?
+    %div.header
+      %div.container
+        %div.header-left
+          = link_to root_path do
+            SimTax
+        %div.header-right
+          %div.header-right__user-name
+            こんにちは#{current_user.name}さん
+          = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
+            ログアウト
+  - else
+    %div.header
+      %div.container
+        %div.header-left
+          = link_to root_path do
+            SimTax
+        %div.header-right
+          = link_to new_user_registration_path, class: "header-right__buttons-signup" do
+            SignUp
+          = link_to  new_user_session_path, class: "header-right__buttons-login" do
+            Login
 
-= form_for @about, url: '/about/result3' do |f|
-  %div.simulation3-input-wrapper
-    %div.simulation3-input-container
-      %div.simulation3-input-heading
-        ローンシミュレーションを行う。（以下項目に入力してください。）
-      %div.simulations3-input
-        %div.simulation3-input-title 借入金条件
-        .field-sim3
-          .field-label
-            = f.label :借入額を千円単位で入力してください。
-          .field-input
-            = f.text_field :debtBalance
-        .field-sim3
-          .field-label
-            = f.label :金利（年利）を％で入力してください。
-          .field-input
-            = f.text_field :annualInterestRate
-        .field-sim3
-          .field-label
-            = f.label :返済回数（毎月1回返済）を入力してください。
-          .field-input
-            = f.text_field :numberOfPayments
-        .actions
-          = f.submit "結果を確認する", { :class => 'submit-btn-sim3' }
+  = form_for @about, url: '/about/result3' do |f|
+    %div.simulation3-input-wrapper
+      %div.simulation3-input-container
+        %div.simulation3-input-heading
+          ローンシミュレーションを行う。（以下項目に入力してください。）
+        %div.simulations3-input
+          %div.simulation3-input-title 借入金条件
+          .field-sim3
+            .field-label
+              = f.label :借入額を千円単位で入力してください。
+            .field-input
+              = f.text_field :debtBalance
+          .field-sim3
+            .field-label
+              = f.label :金利（年利）を％で入力してください。
+            .field-input
+              = f.text_field :annualInterestRate
+          .field-sim3
+            .field-label
+              = f.label :返済回数（毎月1回返済）を入力してください。
+            .field-input
+              = f.text_field :numberOfPayments
+          .actions
+            = f.submit "結果を確認する", { :class => 'submit-btn-sim3' }
 
-%div.footer
-  %div.footer-left
-    %h1.footer-logo SimTax
-    %P Visualize your Tax
-  %div.footer-right
-    %ul
-      %li 事務所概要
-      %li お問い合わせ
+  %div.footer
+    %div.footer-left
+      %h1.footer-logo SimTax
+      %P Visualize your Tax
+    %div.footer-right
+      %ul
+        -# %li 事務所概要
+        %li
+          = link_to "お問い合わせ", inquiry_path

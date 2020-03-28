@@ -8,40 +8,33 @@
   width: 100%;
   height: 50px;
   .mypage-contents {
-    
+    margin-top: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     line-height: 50px;
     text-align: center;
-    background-color: skyblue;
     &__edit-user{
       text-decoration: none;
       color: white;
       background-color: skyblue;
-      width: 50%;
+      width: 45%;
       border: 1px solid white;
+      border-radius: 15px;
     }
     &__new-group{
       text-decoration: none;
       color: white;
       background-color: skyblue;
-      width: 50%;
+      width: 45%;
       border: 1px solid white;
+      border-radius: 15px;
     }
-    // &__edit-group{
-    //   text-decoration: none;
-    //   color: white;
-    //   background-color: skyblue;
-    //   width: 33%;
-    //   border: 1px solid white;
-    // }
   }
 }
 
 .consultants-index {
   height: 900px;
   width: 100%;
-  background-image: image-url('paper-3213924__480.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -49,8 +42,10 @@
   .consultants-title{
     margin-left: 80px;
     font-size: 30px;
-    color: white;
-    background-color: blue;
+    border-bottom: 2px solid #dee7ec;
+    font-size: 25px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     width: 200px;
   }
   .consultant {
@@ -58,11 +53,10 @@
     width: calc(100%-160px);
     opacity: 0.9;
     .group {
-      width: calc(100%/2);
-      height: 100px;
-      float: left;
       background-color: white;
-      border: 1px solid black;
+      border: 2px solid #dee7ec;
+      padding: 20px 20px 5px 20px;
+      margin-bottom: 30px;
       &__name{
         font-size: 25px;
         text-decoration: none;
@@ -74,15 +68,16 @@
        
       }
       .group-delete {
-        text-align: center;
-        font-size: 25px;
+        text-align: right;
+        font-size: 15px;
         text-decoration: none;
         opacity: 1.0;
         .group-delet-button {
           text-decoration: none;
-          background-color: red;
-          border: 3px solid black;
+          background-color: pink;
+          border: 1px solid black;
           padding: 3px;
+          border-radius: 20px;
         }
       }
     }
