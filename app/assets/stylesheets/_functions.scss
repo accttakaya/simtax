@@ -19,6 +19,14 @@ $tab: 680px; // タブレット
 }
 
 // 共通（ヘッダー）-----------------------------------------------------
+.wrapper{
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+
 .header {
   height: 80px;
   width: 100%;
@@ -257,6 +265,9 @@ $tab: 680px; // タブレット
   color: #fff;
   height: 100px;
   padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   .footer-left{
     float: left;
     .footer-logo{
@@ -267,6 +278,8 @@ $tab: 680px; // タブレット
     float: right;
     li {
       padding-bottom: 15px;
+      padding-top: 15px;
+      font-size: 20px;
       a {
         text-decoration: none;
         color: #fff;

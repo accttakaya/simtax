@@ -1,52 +1,53 @@
-- if user_signed_in?
-  %div.header
-    %div.container
-      %div.header-left
-        = link_to root_path do
-          SimTax
-      %div.header-right
-        %div.header-right__user-name
-          こんにちは#{current_user.name}さん
-        = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
-          ログアウト
-- else
-  %div.header
-    %div.container
-      %div.header-left
-        = link_to root_path do
-          SimTax
-      %div.header-right
-        = link_to new_user_registration_path, class: "header-right__buttons-signup" do
-          SignUp
-        = link_to  new_user_session_path, class: "header-right__buttons-login" do
-          Login
+.wrapper
+  - if user_signed_in?
+    %div.header
+      %div.container
+        %div.header-left
+          = link_to root_path do
+            SimTax
+        %div.header-right
+          %div.header-right__user-name
+            こんにちは#{current_user.name}さん
+          = link_to destroy_user_session_path, method: :delete, class: 'header-right__buttons-logout' do
+            ログアウト
+  - else
+    %div.header
+      %div.container
+        %div.header-left
+          = link_to root_path do
+            SimTax
+        %div.header-right
+          = link_to new_user_registration_path, class: "header-right__buttons-signup" do
+            SignUp
+          = link_to  new_user_session_path, class: "header-right__buttons-login" do
+            Login
 
 
 
-= form_for @inquiry, :url => inquiry_thanks_path do |f|
-  %div.contact-form
-    %h3.section-title お問い合わせ内容をご確認のうえ”送信”ボタンを押してください。
-    %p.inquiry お名前
-    = f.hidden_field :name
-    = @inquiry.name
-    %p.inquiry メールアドレス
-    = f.hidden_field :email
-    = @inquiry.email
-    %p.inquiry お問い合わせ内容
-    = f.hidden_field :message
-    = simple_format(@inquiry.message)
-    = f.submit '送信', class: 'contact-submit confirm'
+  = form_for @inquiry, :url => inquiry_thanks_path do |f|
+    %div.contact-form
+      %h3.section-title お問い合わせ内容をご確認のうえ”送信”ボタンを押してください。
+      %p.inquiry お名前
+      = f.hidden_field :name
+      = @inquiry.name
+      %p.inquiry メールアドレス
+      = f.hidden_field :email
+      = @inquiry.email
+      %p.inquiry お問い合わせ内容
+      = f.hidden_field :message
+      = simple_format(@inquiry.message)
+      = f.submit '送信', class: 'contact-submit confirm'
 
 
 
 
 
-%div.footer.footer-inquiry
-  %div.footer-left
-    %h1.footer-logo SimTax
-    %P Visualize your Tax
-  %div.footer-right
-    %ul
-      %li 事務所概要
-      %li 
-        = link_to "お問い合わせ", inquiry_path
+  %div.footer.footer-inquiry
+    %div.footer-left
+      %h1.footer-logo SimTax
+      %P Visualize your Tax
+    %div.footer-right
+      %ul
+        -# %li 事務所概要
+        %li 
+          = link_to "お問い合わせ", inquiry_path
