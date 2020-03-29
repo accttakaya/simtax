@@ -94,7 +94,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.action_mailer.default_url_options = { host: 'https://simtaxtky.herokuapp.com'}
-  # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
@@ -104,6 +103,5 @@ Rails.application.configure do
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true,
-    
   }
 end
